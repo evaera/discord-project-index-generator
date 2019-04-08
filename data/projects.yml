@@ -1,0 +1,35 @@
+- repo: Aurora
+  channel: other-lua-projects
+- repo: Bubbles
+  channel: other-lua-projects
+- repo: Cmdr
+  channel: cmdr
+- repo: EvLightning
+  channel: other-lua-projects
+- repo: RadialSpriteSheetGenerator
+  channel: other-apps
+  link: 'https://eryn.io/RadialSpriteSheetGenerator/'
+- repo: RoVer
+  link: 'https://rover.link'
+  channel: rover-general-support
+- repo: Roblox-FFlag-Watcher
+  channel: fflag-watcher
+  link: 'https://fflag.eryn.io'
+- repo: PollDancer
+  channel: other-bots
+  link: 'https://eryn.io/PollDancer'
+- repo: Votum
+  channel: votum
+  link: 'https://eryn.io/Votum'
+- repo: io-serve
+  channel: other-tools
+- repo: roblox-animation-transfer
+  channel: other-tools
+- repo: vscode-rojo
+  channel: vscode-rojo
+  link: 'https://marketplace.visualstudio.com/items?itemName=evaera.vscode-rojo'
+- name: Scripting Helpers
+  desc: Roblox Q&A community, similar to Stack Overflow.
+  link: 'https://scriptinghelpers.org'
+- repo: roblox-image-size
+  link: 'https://www.roblox.com/library/1382620367/ImageSize'

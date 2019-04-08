@@ -1,0 +1,29 @@
+{
+  "name": "project-index-generator",
+  "version": "1.0.0",
+  "description": "",
+  "main": "dist/index.js",
+  "author": {
+    "name": "evaera",
+    "email": "e@eryn.io",
+    "homepage": "eryn.io"
+  },
+  "license": "MIT",
+  "scripts": {
+    "start": "ts-node src/index.ts"
+  },
+  "devDependencies": {
+    "@types/js-yaml": "^3.12.1",
+    "@types/node": "^10.12.12",
+    "@types/node-fetch": "^2.3.0",
+    "ts-node": "^7.0.1",
+    "tslint": "^5.11.0",
+    "tslint-config-standard": "^8.0.1",
+    "typescript": "^3.2.2"
+  },
+  "dependencies": {
+    "dotenv": "^7.0.0",
+    "js-yaml": "^3.13.1",
+    "node-fetch": "^2.3.0"
+  }
+}
