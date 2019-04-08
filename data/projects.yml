@@ -33,3 +33,5 @@
   link: 'https://scriptinghelpers.org'
 - repo: roblox-image-size
   link: 'https://www.roblox.com/library/1382620367/ImageSize'
+- repo: discord-project-index-generator
+  desc: Generates this list you're looking at right now

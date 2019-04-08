@@ -15,6 +15,8 @@ interface Project {
   desc?: string
 }
 
+const sleep = (ms: number) => new Promise(resolve => setTimeout(resolve, ms))
+
 async function getColors () {
   return fetch('https://raw.githubusercontent.com/ozh/github-colors/master/colors.json').then(res => res.json())
 }
@@ -27,7 +29,7 @@ async function main () {
     const first = a.name || a.repo || ''
     const second = b.name || b.repo || ''
 
-    return first > second ? 1 : -1
+    return first.toLowerCase() > second.toLowerCase() ? 1 : -1
   })
 
   const colors = await getColors()
@@ -58,7 +60,17 @@ async function main () {
     let color = 0x95a5a6
 
     if (repo) {
-      const doc = await fetch(`https://api.github.com/repos/${repo}`).then(res => res.json())
+      const doc = await fetch(`https://api.github.com/repos/${repo}`, {
+        headers: {
+          ...process.env.GITHUB_TOKEN && {
+            Authorization: 'Basic ' + Buffer.from(
+              process.env.GITHUB_USERNAME!
+              + ':' +
+              process.env.GITHUB_TOKEN
+            ).toString('base64')
+          } as any
+        }
+      }).then(res => res.json())
 
       language = doc.language
       link = link || doc.homepage
@@ -82,24 +94,25 @@ async function main () {
         ].join('')
       ].join('\n\n'),
       color,
-      url: link || repoUrl,
-      fields: [
-
-      ]
+      url: link || repoUrl
     }
   }))
 
-  await fetch(process.env.WEBHOOK_URL!, {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify({
-      avatar_url: process.env.WEBHOOK_AVATAR!,
-      username: 'Projects Index',
-      embeds
+  for (const embed of embeds) {
+    await fetch(process.env.WEBHOOK_URL!, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        avatar_url: process.env.WEBHOOK_AVATAR!,
+        username: 'Projects Index',
+        embeds: [ embed ]
+      })
     })
-  })
+
+    await sleep(2000)
+  }
 }
 
 main().catch(e => {
