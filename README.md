@@ -1,6 +1,6 @@
 # Discord Project Index Generator
 
-Generates a Discord web hook embed of your projects in a server! Automatically pulls descriptions and website links from your GitHub repositories. Made for my personal project Discord server, discord.gg/7yfwrat 
+Generates a Discord web hook embed of your projects in a server! Automatically pulls descriptions and website links from your GitHub repositories. Made for my personal project [Discord server](https://discord.gg/7yfwrat). 
 
 ## Instructions
 
